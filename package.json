@@ -1,0 +1,25 @@
+{
+  "name": "pokedex-andre",
+  "version": "1.0.0",
+  "description": "Pokedex para aprendizado na versao de aplicaçao express e sem autenticação",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iskanderskr/pokedex-andre.git"
+  },
+  "keywords": [
+    "Pokedex"
+  ],
+  "author": "Andre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iskanderskr/pokedex-andre/issues"
+  },
+  "homepage": "https://github.com/iskanderskr/pokedex-andre#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
