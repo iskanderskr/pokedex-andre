@@ -10,8 +10,8 @@ app.get("/", function (req, res) {
   res.send("Bem Vindo a Pokedex");
 });
 
-app.get("/pokemoninicial", function (req, res) {
-  res.send(pokedex.pokemon('squirtle'));
+app.get("/pokemoninicial/:nome", function (req, res) {
+  res.send(pokedex.pokemon(req.params.nome));
 });
 app.get("/todospokemon", function(req, res) {
   res.send(pokedex.pokemon(''));
