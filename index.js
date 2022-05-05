@@ -1,20 +1,28 @@
 const express = require("express");
-const Pokedex = require('pokedex')
 const app = express();
 const port = 3000;
-const pokedex = new Pokedex();
- 
+const fs = require("fs");
 
 
-app.get("/", function (req, res) {
-  res.send("Bem Vindo a Pokedex");
+var pokemons = JSON.parse(fs.readFileSync('data/pokemon.json','UTF-8'))
+pokemons = Object.values(pokemons)
+
+app.get("/todospokemons", function(req, res){
+  res.send(pokemons);
 });
 
-app.get("/pokemoninicial/:nome", function (req, res) {
-  res.send(pokedex.pokemon(req.params.nome));
+app.get("/pokemongen1", function(req, res){
+  res.send(pokemons.filter(p => p.num <= 151));
 });
-app.get("/todospokemon", function(req, res) {
-  res.send(pokedex.pokemon(''));
+
+
+
+app.get("/:id", function (req, res) {
+  var id = +req.params.id;
+ if (id>151){
+   res.send('Este Pokemon não pertence a primeira Geração');
+ }
+  res.send(pokemons.find(p => p.num === id));
 });
 
 app.listen(port, () => {
